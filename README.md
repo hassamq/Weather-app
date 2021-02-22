@@ -38,6 +38,14 @@ node app.js
 ```
 search on your web browser: localhost:3000
 
+
+## On Error
+If you go to an un existing route such as localhost:3000/asdsa
+then you will be redirected to to 404 page
+
+![alt text](https://github.com/hassamq/Weather-app/blob/main/screenshots/screencapture-localhost-3000-error-2021-02-22-11_06_28.png)
+
+
 ## Packages
 
 Weatherly is currently extended with the following packages.
