@@ -1,0 +1,188 @@
+
+
+
+
+<!-- <link rel="stylesheet" href="app.css"> -->
+
+  
+ 
+<%layout("layouts/boilerplate") %>
+
+
+
+<% let d = new Date();
+let weekday = new Array(7);
+weekday[0] = "Sunday";
+weekday[1] = "Monday";
+weekday[2] = "Tuesday";
+weekday[3] = "Wednesday";
+weekday[4] = "Thursday";
+weekday[5] = "Friday";
+weekday[6] = "Saturday";
+
+var month = new Array();
+month[0] = "January";
+month[1] = "February";
+month[2] = "March";
+month[3] = "April";
+month[4] = "May";
+month[5] = "June";
+month[6] = "July";
+month[7] = "August";
+month[8] = "September";
+month[9] = "October";
+month[10] = "November";
+month[11] = "December";
+let mon = month[d.getMonth()];
+
+let day = weekday[d.getDay()];
+
+let date = d.getDate();
+
+
+
+
+
+ %>
+ 
+ 
+
+
+
+
+    <div class="container">
+    
+    <div class="col-6 offset-3" >
+      
+      <div class="container1" >
+        <div class="main-temp">
+            <div class="weather-gradient">
+
+
+           <div class="date-container">
+            <h1 class="date-dayname text-white "><%= day %> </h1>
+            <h10 class="date-day text-white "><%= date + " | " +mon %> </h4>
+           </div>
+
+
+            
+           
+           
+                <i class="location-icon fas fa-street-view " style="color:white"></i>
+                <h4 class="location text-white "><%= city1 %>,<%= country1 %>  </h4>
+                
+               <div class="weather-container">
+                <div class=" weather-condition ">
+
+                  <% if(status1=='Sunny'){ %>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun weather-icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <%  }
+                    else if(status1=='Clouds'){ %> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cloud weather-icon"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+                      <%  }
+                    else if(status1=='Rainy'){ %> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cloud-rain weather-icon"><line x1="16" y1="13" x2="16" y2="21"></line><line x1="8" y1="13" x2="8" y2="21"></line><line x1="12" y1="15" x2="12" y2="23"></line><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"></path></svg>
+                        <%  }
+                    else if(status1=='Thunderstorm'){ %>
+                      <svg class="weather-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="24" height="24" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 2214 2180"><path d="M0 1011q0 177 106 317t275 191l-70 179q-5 23 15 23h227l-105 459h30l418-613q6-7 1.5-14.5T882 1545H650l264-495q11-23-15-23H585q-15 0-25 16l-114 306q-114-29-189-124t-75-214q0-133 90.5-231T497 666l56-7q21 0 21-19l7-54q17-173 146.5-290T1032 179q174 0 304.5 117T1486 586l7 62q0 18 19 18h171q145 0 248 101.5t103 243.5q0 136-95 235.5T1704 1357q-21 0-21 19v146q0 18 21 18q213-7 361.5-161t148.5-368q0-144-71-265.5t-193.5-192T1683 483h-33q-53-213-225.5-348T1032 0Q806 0 631 140T407 498q-177 41-292 184.5T0 1011zm869 1036q0 63 62 82q2 0 12 1.5t15 1.5q27 0 52.5-15.5t34.5-51.5l240-927q10-38-7-69t-53-42q-27-3-28-3q-26 0-50.5 16t-33.5 48l-241 930q-3 14-3 29zm443-327q0 21 11 40q22 35 54 47q17 5 32 5t34-8q33-14 45-61l154-605q5-23 5-29q0-24-17-48t-49-34q-27-3-28-3q-27 0-50 15.5t-32 48.5l-156 608q0 3-1.5 11.5t-1.5 12.5z" fill="	#FFFFFF"/></svg>
+                          <%  }
+                      else{%>
+                   
+                        <svg class="weather-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="24" height="24" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M3 15h10a1 1 0 0 1 1 1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1a1 1 0 0 1 1-1m13 0h5a1 1 0 0 1 1 1a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1a1 1 0 0 1 1-1M1 12a5 5 0 0 1 5-5c1-2.35 3.3-4 6-4c3.43 0 6.24 2.66 6.5 6.03L19 9c2.19 0 3.97 1.76 4 4h-2a2 2 0 0 0-2-2h-2v-1a5 5 0 0 0-5-5C9.5 5 7.45 6.82 7.06 9.19C6.73 9.07 6.37 9 6 9a3 3 0 0 0-3 3a3 3 0 0 0 .17 1H1.1L1 12m2 7h2a1 1 0 0 1 1 1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1a1 1 0 0 1 1-1m5 0h13a1 1 0 0 1 1 1a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1a1 1 0 0 1 1-1z" fill="#FFFFFF"/></svg>
+                        <% }%>
+                          
+
+                    
+
+                    
+
+                  
+
+                   
+                </div>
+    
+                <h1 class="weather-temp text-white text-center "><%= temp1 %> &#8451 </h1>
+                <h3 class="weather-desc"><%= status1 %> </h3>
+               </div>
+
+                
+                
+                
+            
+        </div>
+        </div>
+
+   
+    <div class="container-fluid  ">
+        <div class="week-container">
+          
+          <h1 class="day-title"></h1>
+          <ul class="week-list">
+
+            <% stausl=['Sunny','Sunny','Sunny','Sunny'];for (let index = templ.length-1; index >= 0; index--) { %>
+             <li class="day-list">
+              <% if(statusl[index]=='Sunny'){ %>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun day-icon"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <%  }
+                    else if(statusl[index]=='Clouds'){ %> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cloud day-icon"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+                      <%  }
+                    else if(statusl[index]=='Rainy'){ %> 
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-cloud-rain day-icon"><line x1="16" y1="13" x2="16" y2="21"></line><line x1="8" y1="13" x2="8" y2="21"></line><line x1="12" y1="15" x2="12" y2="23"></line><path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25"></path></svg>
+                        <%  }
+                    else if(statusl[index]=='Thunderstorm'){ %>
+                      <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="24" height="24" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path d="M13.5 15h-2.27l1.45-2.5a1 1 0 1 0-1.74-1l-2.31 4a1 1 0 0 0 0 1a1 1 0 0 0 .87.5h2.27l-1.45 2.5a1 1 0 0 0 1.74 1l2.31-4a1 1 0 0 0 0-1a1 1 0 0 0-.87-.5zm4.92-7.79a7 7 0 0 0-13.36 1.9A4 4 0 0 0 6 17a1 1 0 0 0 0-2a2 2 0 0 1 0-4a1 1 0 0 0 1-1a5 5 0 0 1 9.73-1.61a1 1 0 0 0 .78.66A3 3 0 0 1 17 15a1 1 0 0 0 0 2a5 5 0 0 0 1.42-9.79z" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class=" day-icon"/></svg>
+                          <%  }
+                      else{%>
+                        <svg class="day-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" ><path d="M3 15h10a1 1 0 0 1 1 1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1a1 1 0 0 1 1-1m13 0h5a1 1 0 0 1 1 1a1 1 0 0 1-1 1h-5a1 1 0 0 1-1-1a1 1 0 0 1 1-1M1 12a5 5 0 0 1 5-5c1-2.35 3.3-4 6-4c3.43 0 6.24 2.66 6.5 6.03L19 9c2.19 0 3.97 1.76 4 4h-2a2 2 0 0 0-2-2h-2v-1a5 5 0 0 0-5-5C9.5 5 7.45 6.82 7.06 9.19C6.73 9.07 6.37 9 6 9a3 3 0 0 0-3 3a3 3 0 0 0 .17 1H1.1L1 12m2 7h2a1 1 0 0 1 1 1a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1a1 1 0 0 1 1-1m5 0h13a1 1 0 0 1 1 1a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1a1 1 0 0 1 1-1z" /></svg>
+                        <% }%>
+                          
+              <span class="day-time"><%= time0l[index]%></span>
+              <span class="day-temp"><%= templ[index]%> &#8451 </span>
+
+            </li>
+              
+          <%  }%>
+
+          </ul>
+        </div>
+      </div>
+
+
+
+
+      
+    
+   </div> 
+</div>
+</div>
+
+
+
+  <div class="container2">
+   <div class="containbox ">
+   
+    <div class="box">
+      <div class="chart" data-percent="<%=cloud1%>" data-scale-color="#ffb400"><%=cloud1%>%</div>
+      <h2>Clouds</h2>
+  </div>
+
+  <div class="box ">
+      <div class="chart" data-percent="<%=humidity1%>" data-scale-color="#ffb400" ><%=humidity1%>%</div>
+      <h2>humidity</h2>
+  </div>
+
+  <div class="box">
+      <div class="chart" data-percent="100" data-scale-color="#ffb400"><%=wind1%>m/s</div>
+      <h2>Wind</h2>
+  </div>
+
+     </div>
+
+  </div>
+
+
+
+  
+   
+  
