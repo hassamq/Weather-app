@@ -29,10 +29,14 @@ Install the dependencies and devDependencies and start the server.
 ```sh
 cd weatherly
 npm i
-node app.js
+
 ```
 
-
+## Run
+```sh
+node app.js
+```
+search on your web browser: localhost:3000
 
 ## Packages
 
