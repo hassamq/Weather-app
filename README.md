@@ -7,7 +7,7 @@
 
 Weatherly is a Weather app developed in html,css,bootstrap and js ,express ,ejs , for backend node js is used.
 
-![alt text](http://url/to/img.png)
+![alt text](https://github.com/hassamq/Weather-app/blob/main/screenshots/screencapture-localhost-3000-2021-02-22-11_05_45.png?raw=true)
 
 
 
